@@ -1,0 +1,63 @@
+<h1>Registration</h1>
+
+<form (ngSubmit)="guardarCliente()" [formGroup]="formulario">
+    <div class="form-group">
+        <label for="firstName"></label>First Name: 
+        <input type="text" class="form-control" formControlName="firstName">
+        <span class="error" *ngIf="formulario.controls['firstName'].getError('required')
+            && formulario.touched">
+            El campo es requerido  
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName"></label>Last Name: 
+        <input type="text" formControlName="lastName" class="form-control">
+        <span class="error" *ngIf="formulario.controls['lastName'].getError('required')
+            && formulario.touched">
+            El campo es requerido  
+        </span>
+    </div>
+    
+    <div class="form-group">
+        <label for="dni"></label>DNI: 
+        <input type="text" formControlName="dni" class="form-control">
+        <div>
+            <span class="error" *ngIf="formulario.controls['dni'].getError('required')
+                && formulario.touched">
+            El campo es requerido  
+            </span>
+        </div>
+        <div>
+            <span class="error" *ngIf="formulario.controls['dni'].getError('minlength')
+                && formulario.touched">
+            El DNI debe tener al menos 8 numeros 
+            </span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="email"></label>Email: 
+        <input type="text" formControlName="email" class="form-control">
+        <span class="error" *ngIf="formulario.controls['email'].getError('required')
+            && formulario.touched">
+            El campo es requerido  
+        </span>
+    </div>
+    
+    <div class="form-group">
+        <label for="address"></label>Address: 
+        <input type="text" formControlName="address" class="form-control">
+        <span class="error" *ngIf="formulario.controls['address'].getError('required')
+            && formulario.touched">
+            El campo es requerido  
+        </span>
+    </div>
+
+    <div class="form-group">
+        <input type="hidden" id="id" formControlName="id" class="form-control">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

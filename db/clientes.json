@@ -1,0 +1,26 @@
+{
+    "clientes": [{
+        "id": 1,
+        "firstName": "Nazareno",
+        "lastName": "Pisoni",
+        "dni": "35893486",
+        "email": "nazareno_pisoni@hotmail.com",
+        "address": "Olavarria 2261"
+    },
+    {
+        "id": 2,
+        "firstName": "Lionel",
+        "lastName": "Messi",
+        "dni": "30374343",
+        "email": "leomessi@hotmail.com",
+        "address": "Miami 123"
+    },
+    {
+        "id": 3,
+        "firstName": "Juan",
+        "lastName": "Perez",
+        "dni": "20434555",
+        "email": "juan@hotmail.com",
+        "address": "Colon 1234"
+    }]
+}
