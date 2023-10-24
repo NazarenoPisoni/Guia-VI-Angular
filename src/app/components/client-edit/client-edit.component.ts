@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { cliente } from 'src/app/models/client.model';
 import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
-  selector: 'app-client-add',
-  templateUrl: './client-add.component.html',
-  styleUrls: ['./client-add.component.css']
+  selector: 'app-client-edit',
+  templateUrl: './client-edit.component.html',
+  styleUrls: ['./client-edit.component.css']
 })
-export class ClientAddComponent {
+export class ClientEditComponent {
+
+  cliente : cliente | undefined;
 
   formulario: FormGroup = this.fb.group({
     id: 0,
@@ -19,10 +22,13 @@ export class ClientAddComponent {
     address: ['', Validators.required]
   })
 
-  clients : cliente[] = [];
-
   constructor(private fb : FormBuilder,
-              private clientService : ClienteService) {}
+              private clienteService : ClienteService,
+              private route : ActivatedRoute) {}
+
+            
+
+         
 
   guardarCliente() {
     if(this.formulario.invalid) return;
@@ -36,9 +42,5 @@ export class ClientAddComponent {
       address: this.formulario.controls['address'].value
     }
 
-    this.clientService.addCliente(clienteRegistrado);
-    this.clientService.setShowTable(true);
-    alert('Se ha registrado correctamente');
   }
-
 }

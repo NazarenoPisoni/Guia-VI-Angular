@@ -9,6 +9,8 @@ import { ClientListComponent } from './components/client-list/client-list.compon
 import { HomeClientePageComponent } from './pages/home-cliente-page/home-cliente-page.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { NuevoClientePageComponent } from './pages/nuevo-cliente-page/nuevo-cliente-page.component';
+import { ClientEditComponent } from './components/client-edit/client-edit.component';
+import { EditarClientePageComponent } from './pages/editar-cliente-page/editar-cliente-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { NuevoClientePageComponent } from './pages/nuevo-cliente-page/nuevo-clie
     ClientListComponent,
     HomeClientePageComponent,
     NavbarComponent,
-    NuevoClientePageComponent
+    NuevoClientePageComponent,
+    ClientEditComponent,
+    EditarClientePageComponent,
   ],
   imports: [
     BrowserModule,

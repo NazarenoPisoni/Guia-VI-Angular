@@ -11,6 +11,17 @@
                 <td>Address</td>
             </tr>
         </thead>
-        <tbody id="clientes"></tbody>
+        <tbody id="clientes">
+            <tr *ngFor="let cliente of clients">
+                <td>{{cliente.clientId}}</td>
+                <td>{{cliente.firstName}}</td>
+                <td>{{cliente.lastName}}</td>
+                <td>{{cliente.dni}}</td>
+                <td>{{cliente.email}}</td>
+                <td>{{cliente.address}}</td>
+                <td><button type="button" class="btn btn-danger" (click)="deleteClient(cliente)">Delete</button></td>
+                <td><button type="button" class="btn btn-primary">Edit</button></td>
+            </tr>
+        </tbody>
     </table>
 </main>
