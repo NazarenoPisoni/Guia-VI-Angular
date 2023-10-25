@@ -1,0 +1,15 @@
+http {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-left: 1rem;
+}
+
+form {
+    margin-left: 1rem;
+}
+
+button {
+    margin-top: 1rem;
+}

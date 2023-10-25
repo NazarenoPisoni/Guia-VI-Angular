@@ -8,6 +8,7 @@ import { EditarClientePageComponent } from './pages/editar-cliente-page/editar-c
 const routes: Routes = [
   {path: 'nuevo', component: NuevoClientePageComponent},
   {path: 'home', component: HomeClientePageComponent},
+  {path: 'edit/:id', component: EditarClientePageComponent},
   {path: '**', redirectTo: 'home'}
 ];
 

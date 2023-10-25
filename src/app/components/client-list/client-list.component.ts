@@ -24,4 +24,8 @@ export class ClientListComponent {
     this.clients.splice(this.clients.indexOf(cliente), 1);
   }
 
+  editarCliente(cliente : cliente) {
+    
+  }
+
 }

@@ -20,7 +20,7 @@
                 <td>{{cliente.email}}</td>
                 <td>{{cliente.address}}</td>
                 <td><button type="button" class="btn btn-danger" (click)="deleteClient(cliente)">Delete</button></td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
+                <td><button type="button" class="btn btn-primary" (click)="editarCliente(cliente)" [routerLink]="['/edit', cliente.clientId]">Edit</button></td>
             </tr>
         </tbody>
     </table>

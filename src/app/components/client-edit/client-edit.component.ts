@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { cliente } from 'src/app/models/client.model';
 import { ClienteService } from 'src/app/services/cliente.service';
 
@@ -24,23 +24,34 @@ export class ClientEditComponent {
 
   constructor(private fb : FormBuilder,
               private clienteService : ClienteService,
-              private route : ActivatedRoute) {}
+              private route : ActivatedRoute,
+              private router : Router) {}
 
-            
+  ngOnInit() {
+    const clienteId = +this.route.snapshot.params['id'];
+    this.clienteService.getSelectedClient().subscribe((cliente) => {
+      if(cliente) {
+        this.cliente = cliente;
+        this.formulario.patchValue(this.cliente);
+      }
+    })
+
+    this.clienteService.getClientePorId(clienteId);
+  }          
 
          
 
-  guardarCliente() {
-    if(this.formulario.invalid) return;
+  editarCliente() {
+    if(this.formulario.valid && this.cliente) {
+      this.cliente.firstName = this.formulario.value.firstName;
+      this.cliente.lastName = this.formulario.value.lastName;
+      this.cliente.dni = this.formulario.value.dni;
+      this.cliente.email = this.formulario.value.email;
+      this.cliente.address = this.formulario.value.address;
 
-    const clienteRegistrado : cliente = {
-      clientId: this.formulario.controls['id'].value,
-      firstName: this.formulario.controls['firstName'].value,
-      lastName: this.formulario.controls['lastName'].value,
-      dni: this.formulario.controls['dni'].value,
-      email: this.formulario.controls['email'].value,
-      address: this.formulario.controls['address'].value
+      this.clienteService.editarCliente(this.cliente);
+
+      this.router.navigate(['/home']);
     }
-
   }
 }
